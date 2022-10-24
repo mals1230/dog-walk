@@ -1,4 +1,6 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import { useQuery } from "@apollo/client";
 
-import { PLACEHOLDER } from '../utils/queries';
+import { PLACEHOLDER } from "../utils/queries";
+
+export default Home;
