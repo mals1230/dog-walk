@@ -1,1 +1,18 @@
-[]
+[
+    
+    {
+      "walkerBio": "Averi is a long time dog walker! She has been loving dogs for 10+ years, and has experience with both dog training and dog sitting as well!",
+      "walkerName": "Averi Sherman"
+    },
+    {
+        "walkerBio": "Our newest dog walker, but long time dog owner! Sam is a proud owner of 4 rescues, and long time veterinary assistant!",
+      "walkerName": "Sam Gerungan"
+    },
+    {
+      "walkerBio": "Mallory has been a dog walker for 3 years, and loves taking long hikes with our most active ones! If you're looking for someone to get your high energy dog a good run Mallory is your girl!",
+      "walkerName": "Mallory Sheehan"
+    },
+    { "walkerBio":"Maia was a dog show trainer for 4 years, and after retirement has loved continuing her love for dogs with long walks and runs with all dogs!",
+    "walkerName": "Maia Chargois"
+    }
+]
