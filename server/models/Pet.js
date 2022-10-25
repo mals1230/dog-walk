@@ -1,45 +1,43 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
-const thoughtSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: 'You need to leave a thought!',
-    minlength: 1,
-    maxlength: 280,
-    trim: true,
-  },
-  thoughtAuthor: {
+
+const petSchema = new Schema({
+  petName: {
     type: String,
     required: true,
     trim: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+  petBreed: {
+    type: String,
+    required: true,
+    trim: true,
   },
-  comments: [
-    {
-      commentText: {
-        type: String,
-        required: true,
-        minlength: 1,
-        maxlength: 280,
-      },
-      commentAuthor: {
-        type: String,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-    },
-  ],
+  petAge: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  petWeight: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  petInstruction: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1,
+    maxlength: 280,
+  },
+  petEmergency: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1,
+    maxlength: 280,
+  },
 });
 
-const Thought = model('Thought', thoughtSchema);
+const Pet = model('Pet', petSchema);
 
-module.exports = Thought;
+module.exports = Pet;
