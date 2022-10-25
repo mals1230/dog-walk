@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-  username: {
+  userfullname: {
     type: String,
     required: true,
     unique: true,
@@ -19,10 +19,15 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  address: {
+    type: String,
+    required: true,
+    minlength: 5,
+  },
+  pet: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Pet',
     },
   ],
 });
