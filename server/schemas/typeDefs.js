@@ -3,28 +3,28 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-    userfullname: String
+    userFullName: String
     email: String
     password: String
     address: String
-    Pet: [Pet]!
+    pet: [Pet]
   }
 
   type Pet {
     _id: ID
     petName: String
     petBreed: String
-    petAge: Number
-    petWeight: Number
-    PetInstruction: String
+    petAge: Int
+    petWeight: Int
+    petInstruction: String
     petEmergency: String
   }
 
   type BookWalk {
     _id: ID
-    walkDate: Date
-    walkTime: Date
-    WalkDuration: Number
+    walkDate: String
+    walkTime: String
+    walkDuration: Int
     dogWalker: [DogWalker]
     pet: [Pet]
   }
@@ -41,21 +41,24 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    user(userfullname: String!): User
-    pets(userfullname: String): [Pet]
     pet(petId: ID!): Pet
     me: User
   }
 
   type Mutation {
-    addUser(userfullname: String!, email: String!, password: String!): Auth
+    addUser(
+      userFullName: String!
+      email: String!
+      password: String!
+      address: String!
+    ): Auth
     login(email: String!, password: String!): Auth
-    addPet(petName: String!): Pet
-    removePet(petId: ID!): Pet
-    addWalk(petId: ID!, dogWalker: ID!): Pet
-    removeWalk(petId: ID!, walkId: ID!): Pet
   }
 `;
 
 module.exports = typeDefs;
+
+// addPet(petName: String!): Pet
+//     removePet(petId: ID!): Pet
+//     addWalk(petId: ID!, dogWalker: ID!): Pet
+//     removeWalk(petId: ID!, walkId: ID!): Pet
