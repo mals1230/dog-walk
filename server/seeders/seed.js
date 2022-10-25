@@ -11,3 +11,4 @@ db.once('open', async () => {
   console.log('Dog walkers seeded!');
   process.exit(0);
 });
+
