@@ -3,25 +3,36 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
+    userfullname: String
     email: String
     password: String
-    thoughts: [Thought]!
+    address: String
+    Pet: [Pet]!
   }
 
-  type Thought {
+  type Pet {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+    petName: String
+    petBreed: String
+    petAge: Number
+    petWeight: Number
+    PetInstruction: String
+    petEmergency: String
   }
 
-  type Comment {
+  type BookWalk {
     _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+    walkDate: Date
+    walkTime: Date
+    WalkDuration: Number
+    dogWalker: [DogWalker]
+    pet: [Pet]
+  }
+
+  type DogWalker {
+    _id: ID
+    walkerName: String
+    walkerBio: String
   }
 
   type Auth {
@@ -31,19 +42,19 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    user(userfullname: String!): User
+    pets(userfullname: String): [Pet]
+    pet(petId: ID!): Pet
     me: User
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(userfullname: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addPet(petName: String!): Pet
+    removePet(petId: ID!): Pet
+    addWalk(petId: ID!, dogWalker: ID!): Pet
+    removeWalk(petId: ID!, walkId: ID!): Pet
   }
 `;
 
