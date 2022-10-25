@@ -31,7 +31,12 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { userFullName, email, password, address }) => {
-      const user = await User.create({ userFullName, email, password, address });
+      const user = await User.create({
+        userFullName,
+        email,
+        password,
+        address,
+      });
       const token = signToken(user);
       return { token, user };
     },
@@ -52,7 +57,8 @@ const resolvers = {
 
       return { token, user };
     },
-    // addThought: async (parent, { thoughtText }, context) => {
+
+    // addPet: async (parent, { petId }, context) => {},
     //   if (context.user) {
     //     const thought = await Thought.create({
     //       thoughtText,
