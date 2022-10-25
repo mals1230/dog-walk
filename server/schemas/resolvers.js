@@ -31,7 +31,12 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { userFullName, email, password, address }) => {
-      const user = await User.create({ userFullName, email, password, address });
+      const user = await User.create({
+        userFullName,
+        email,
+        password,
+        address,
+      });
       const token = signToken(user);
       return { token, user };
     },
@@ -52,7 +57,8 @@ const resolvers = {
 
       return { token, user };
     },
-    // addThought: async (parent, { thoughtText }, context) => {
+
+    // addPet: async (parent, { petId }, context) => {},
     //   if (context.user) {
     //     const thought = await Thought.create({
     //       thoughtText,
@@ -68,7 +74,7 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError("You need to be logged in!");
     // },
-    // addComment: async (parent, { thoughtId, commentText }, context) => {
+    // addWalk: async (parent, { thoughtId, commentText }, context) => {
     //   if (context.user) {
     //     return Thought.findOneAndUpdate(
     //       { _id: thoughtId },
@@ -85,7 +91,7 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError("You need to be logged in!");
     // },
-    // removeThought: async (parent, { thoughtId }, context) => {
+    // removePet: async (parent, { thoughtId }, context) => {
     //   if (context.user) {
     //     const thought = await Thought.findOneAndDelete({
     //       _id: thoughtId,
@@ -101,7 +107,24 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError("You need to be logged in!");
     // },
-    // removeComment: async (parent, { thoughtId, commentId }, context) => {
+    // removeWalk: async (parent, { thoughtId, commentId }, context) => {
+    //   if (context.user) {
+    //     return Thought.findOneAndUpdate(
+    //       { _id: thoughtId },
+    //       {
+    //         $pull: {
+    //           comments: {
+    //             _id: commentId,
+    //             commentAuthor: context.user.username,
+    //           },
+    //         },
+    //       },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
+    // removeUser:  async (parent, { thoughtId, commentId }, context) => {
     //   if (context.user) {
     //     return Thought.findOneAndUpdate(
     //       { _id: thoughtId },
