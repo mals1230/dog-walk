@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-
 const petSchema = new Schema({
   petName: {
     type: String,
