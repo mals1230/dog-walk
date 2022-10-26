@@ -108,7 +108,7 @@ const resolvers = {
           { $pull: { pets: pet._id } }
         );
 
-        return thought;
+        return pet;
       }
       throw new AuthenticationError("You need to be logged in to remove a pet!");
     },
