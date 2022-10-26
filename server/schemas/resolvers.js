@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Thought, Pet } = require("../models");
+const { User, BookWalk, DogWalker, Pet } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -81,18 +81,22 @@ const resolvers = {
 
     addWalk: async (parent, { walkDate, walkTime, walkDuration, dogWalker, pet }, context) => {
       if (context.user) {
-        return Pet.findOneAndUpdate(
-          { _id: petId },
-          {
-            $addToSet: {
-              walk: { walkDate, walkTime, walkDuration, dogWalker, pet, petUser: context.user.userFullName },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
+
+        // return Pet.findOneAndUpdate(
+        //   { _id: petId },
+        //   {
+        //     $addToSet: {
+        //       walk: { walkDate, walkTime, walkDuration, dogWalker, petId, petUser: context.user.userFullName },
+        //     },
+        //   },
+        //   {
+        //     new: true,
+        //     runValidators: true,
+        //   }
+        // );
+        const bookWalk = await BookWalk.create({ walkDate, walkTime, walkDuration, dogWalker, pet, petUser: context.user.userFullName })
+        return BookWalk.find({_id: bookWalk._id}).populate("dogWalker").populate("pet")
+
       }
       throw new AuthenticationError("You need to be logged in to book a walk!");
     },
