@@ -54,15 +54,33 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
 
-    removeUser(userID: ID!): User
+    removeUser(
+      userID: ID!
+    ): User
 
-    addPet(petName: String!): Pet
+    addPet(
+      petName: String!
+      petBreed: String!
+      petAge: Int!
+      perWeight: Int!
+    ): Pet
     
-    removePet(petId: ID!): Pet
+    removePet(
+      petId: ID!
+    ): Pet
     
-    addWalk(petId: ID!, dogWalker: ID!): Pet
+    addWalk(
+      walkDate: Date!
+      walkTime: Date!
+      walkDuration: Int!
+      petId: ID!
+      dogWalker: ID!
+    ): BookWalk
     
-    removeWalk(petId: ID!, walkId: ID!): Pet
+    removeWalk(
+      petId: ID!, 
+      walkId: ID!
+    ): BookWalk
   }
 `;
 
