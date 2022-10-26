@@ -112,40 +112,40 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in to remove a pet!");
     },
-    // removeWalk: async (parent, { thoughtId, commentId }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $pull: {
-    //           comments: {
-    //             _id: commentId,
-    //             commentAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
-    // removeUser:  async (parent, { thoughtId, commentId }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $pull: {
-    //           comments: {
-    //             _id: commentId,
-    //             commentAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    removeWalk: async (parent, { petId, walkId }, context) => {
+      if (context.user) {
+        return Pet.findOneAndUpdate(
+          { _id: petId },
+          {
+            $pull: {
+              walks: {
+                _id: walkId,
+                walkUser: context.user.userFullName,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in to cancel a walk!");
+    },
+    removeUser:  async (parent, { petId, walkId }, context) => {
+      if (context.user) {
+        return pet.findOneAndUpdate(
+          { _id: petId },
+          {
+            $pull: {
+              walks: {
+                _id: walkId,
+                walkUser: context.user.userFullName,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in to delete your account!");
+    },
   },
 };
 
