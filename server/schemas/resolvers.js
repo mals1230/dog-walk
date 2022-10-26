@@ -131,13 +131,12 @@ const resolvers = {
     },
     removeUser:  async (parent, { petId, walkId }, context) => {
       if (context.user) {
-        return pet.findOneAndUpdate(
+        return Pet.findOneAndUpdate(
           { _id: petId },
           {
             $pull: {
-              walks: {
-                _id: walkId,
-                walkUser: context.user.userFullName,
+              users: {
+                _id: userId,
               },
             },
           },
