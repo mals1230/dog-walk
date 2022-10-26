@@ -95,7 +95,9 @@ const resolvers = {
         //   }
         // );
         const bookWalk = await BookWalk.create({ walkDate, walkTime, walkDuration, dogWalker, pet, petUser: context.user.userFullName })
-        return BookWalk.find({_id: bookWalk._id}).populate("dogWalker").populate("pet")
+        console.log(bookWalk)
+
+        return BookWalk.findById( bookWalk._id).populate("dogWalker").populate("pet")
 
       }
       throw new AuthenticationError("You need to be logged in to book a walk!");
