@@ -1,10 +1,12 @@
 import { gql } from "@apollo/client";
 
-export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
+export const QUERY_USER = gql`
+  query user($userFullName: String!) {
+    user(userFullName: $userFullName) {
+      _id
+      userFullname
+      email
+      pets {
         _id
         username
       }
@@ -12,43 +14,28 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
+export const QUERY_PETS = gql`
+  query getPets {
+    Pets {
+      _id
+      petName
+      petUser
+      createdAt
     }
   }
 `;
 
-export const ADD_PET = gql`
-  mutation addPet($petName: String!) {
-    addPet(petText: $petName) {
+export const QUERY_ME = gql`
+  query me {
+    me {
       _id
-      petName
-      petUser
-      walk {
+      userFullName
+      email
+      Pets {
         _id
-        $walkName
-        walkDuration 
-      }
-    }
-  }
-`;
-
-export const ADD_WALK = gql`
-  mutation addWalk($petId: ID!, $walkName: String!) {
-    addWalk(petId: $petId, $walkName: $walkName) {
-      _id
-      petName
-      petUser
-      walk {
-        _id
-        $walkName
-        walkDuration
+        petName
+        petUser
+        createdAt
       }
     }
   }
