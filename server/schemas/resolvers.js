@@ -96,22 +96,22 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in to book a walk!");
     },
-    // removePet: async (parent, { thoughtId }, context) => {
-    //   if (context.user) {
-    //     const thought = await Thought.findOneAndDelete({
-    //       _id: thoughtId,
-    //       thoughtAuthor: context.user.username,
-    //     });
+    removePet: async (parent, { petId }, context) => {
+      if (context.user) {
+        const pet = await Pet.findOneAndDelete({
+          _id: petId,
+          petUser: context.user.userFullName,
+        });
 
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { thoughts: thought._id } }
-    //     );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { pets: pet._id } }
+        );
 
-    //     return thought;
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+        return thought;
+      }
+      throw new AuthenticationError("You need to be logged in to remove a pet!");
+    },
     // removeWalk: async (parent, { thoughtId, commentId }, context) => {
     //   if (context.user) {
     //     return Thought.findOneAndUpdate(
