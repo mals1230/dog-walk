@@ -62,7 +62,7 @@ const typeDefs = gql`
       petName: String!
       petBreed: String!
       petAge: Int!
-      perWeight: Int!
+      petWeight: Int!
     ): Pet
     
     removePet(
@@ -70,8 +70,8 @@ const typeDefs = gql`
     ): Pet
     
     addWalk(
-      walkDate: Date!
-      walkTime: Date!
+      walkDate: String!
+      walkTime: String!
       walkDuration: Int!
       petId: ID!
       dogWalker: ID!
