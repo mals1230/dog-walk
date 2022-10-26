@@ -4,11 +4,11 @@ export const QUERY_USER = gql`
   query user($userFullName: String!) {
     user(userFullName: $userFullName) {
       _id
-      userFullname
+      userFullName
       email
       pets {
         _id
-        username
+        userFullName
       }
     }
   }
@@ -16,11 +16,10 @@ export const QUERY_USER = gql`
 
 export const QUERY_PETS = gql`
   query getPets {
-    Pets {
+    pets {
       _id
       petName
       petUser
-      createdAt
     }
   }
 `;
@@ -31,11 +30,10 @@ export const QUERY_ME = gql`
       _id
       userFullName
       email
-      Pets {
+      pets {
         _id
         petName
         petUser
-        createdAt
       }
     }
   }
