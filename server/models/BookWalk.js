@@ -3,16 +3,12 @@ const dateFormat = require('../utils/dateFormat');
 
 const bookWalkSchema = new Schema({
     walkDate: {
-      type: Date,
+      type: String,
       required: true,
-      default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
     },
     walkTime: {
-      type: Date,
+      type: String,
       required: true,
-      default: Date.now,
-      get: (timestamp) => dateFormat(timestamp),
     },
     walkDuration: {
       type: Number,

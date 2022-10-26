@@ -73,12 +73,12 @@ const typeDefs = gql`
       walkDate: String!
       walkTime: String!
       walkDuration: Int!
-      petId: ID!
+      pet: ID!
       dogWalker: ID!
     ): BookWalk
     
     removeWalk(
-      petId: ID!, 
+      pet: ID!, 
       walkId: ID!
     ): BookWalk
   }
