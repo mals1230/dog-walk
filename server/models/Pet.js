@@ -23,14 +23,14 @@ const petSchema = new Schema({
   },
   petInstruction: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
     minlength: 1,
     maxlength: 280,
   },
   petEmergency: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
     minlength: 1,
     maxlength: 280,

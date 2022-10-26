@@ -58,22 +58,26 @@ const resolvers = {
       return { token, user };
     },
 
-    // addPet: async (parent, { petId }, context) => {},
-    //   if (context.user) {
-    //     const thought = await Thought.create({
-    //       thoughtText,
-    //       thoughtAuthor: context.user.username,
-    //     });
+    addPet: async (parent, { petName, petBreed, petAge, petWeight }, context) => {
+      if (context.user) 
+      {
+        const pet = await Pet.create({
+          petName,
+          petBreed,
+          petAge,
+          petWeight,
+          petUser: context.user.userFullName,
+        });
 
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { thoughts: thought._id } }
-    //     );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { pets: pet._id } }
+        );
 
-    //     return thought;
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+        return pet;
+      }
+      throw new AuthenticationError("You need to be logged in to add your pet!");
+    },
     // addWalk: async (parent, { thoughtId, commentText }, context) => {
     //   if (context.user) {
     //     return Thought.findOneAndUpdate(
