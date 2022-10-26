@@ -10,7 +10,7 @@ export const QUERY_USER = gql`
       email
       pets {
         _id
-        petText
+        petName
         createdAt
       }
     }
@@ -21,7 +21,7 @@ export const QUERY_PETS = gql`
   query getPets {
     Pets {
       _id
-      petText
+      petName
       petUser
       createdAt
     }
@@ -36,7 +36,7 @@ export const QUERY_ME = gql`
       email
       Pets {
         _id
-        petText
+        petName
         petUser
         createdAt
       }
