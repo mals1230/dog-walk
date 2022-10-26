@@ -1,6 +1,4 @@
-// ADDING SO FILES/FOLDERS WILL GET SENT TO GITHUB
-import { gql } from '@apollo/client';
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($userFullName: String!) {
@@ -10,8 +8,7 @@ export const QUERY_USER = gql`
       email
       pets {
         _id
-        petName
-        createdAt
+        username
       }
     }
   }
