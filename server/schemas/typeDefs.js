@@ -53,12 +53,19 @@ const typeDefs = gql`
       address: String!
     ): Auth
     login(email: String!, password: String!): Auth
+
+    removeUser(userID: ID!): User
+
+    addPet(petName: String!): Pet
+    
+    removePet(petId: ID!): Pet
+    
+    addWalk(petId: ID!, dogWalker: ID!): Pet
+    
+    removeWalk(petId: ID!, walkId: ID!): Pet
   }
 `;
 
 module.exports = typeDefs;
 
-// addPet(petName: String!): Pet
-//     removePet(petId: ID!): Pet
-//     addWalk(petId: ID!, dogWalker: ID!): Pet
-//     removeWalk(petId: ID!, walkId: ID!): Pet
+
