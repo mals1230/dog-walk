@@ -37,7 +37,7 @@ const PetList = ({
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{thought.thoughtText}</p>
+              <p>{pet.petName}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
