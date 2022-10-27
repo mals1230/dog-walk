@@ -63,6 +63,8 @@ const typeDefs = gql`
       petBreed: String!
       petAge: Int!
       petWeight: Int!
+      petInstruction: String!
+      petEmergency: String!
     ): Pet
     
     removePet(

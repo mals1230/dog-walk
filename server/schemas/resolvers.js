@@ -63,7 +63,7 @@ const resolvers = {
       return { token, user };
     },
 
-    addPet: async (parent, { petName, petBreed, petAge, petWeight }, context) => {
+    addPet: async (parent, { petName, petBreed, petAge, petWeight, petInstruction, petEmergency }, context) => {
       if (context.user) 
       {
         const pet = await Pet.create({
@@ -71,6 +71,8 @@ const resolvers = {
           petBreed,
           petAge,
           petWeight,
+          petInstruction,
+          petEmergency,
           petUser: context.user.userFullName,
         });
 
