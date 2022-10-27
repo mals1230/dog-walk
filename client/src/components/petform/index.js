@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { ADD_Pet } from '../../utils/mutations';
-import { QUERY_PETS, QUERY_ME } from '../../utils/queries';
+import { ADD_PET } from "../../utils/mutations";
+import { QUERY_PETS, QUERY_ME } from "../../utils/queries";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
-const petform = () => {
-  const [petName, setpetName] = useState('');
+const PetForm = () => {
+  const [petName, setPetName] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPet, { error }] = useMutation(ADD_Pet, {
+  const [addPet, { error }] = useMutation(ADD_PET, {
     update(cache, { data: { addPet } }) {
       try {
         const { pets } = cache.readQuery({ query: QUERY_PETS });
@@ -45,7 +45,7 @@ const petform = () => {
         },
       });
 
-      setPetText('');
+      setPetName("");
     } catch (err) {
       console.error(err);
     }
@@ -54,8 +54,8 @@ const petform = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'petName' && value.length <= 280) {
-      setPetText(value);
+    if (name === "petName" && value.length <= 280) {
+      setPetName(value);
       setCharacterCount(value.length);
     }
   };
@@ -68,7 +68,7 @@ const petform = () => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/280
@@ -83,7 +83,7 @@ const petform = () => {
                 placeholder="My dog's name is..."
                 value={petName}
                 className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -102,7 +102,7 @@ const petform = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to add your pet/s. Please{' '}
+          You need to be logged in to add your pet/s. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -110,4 +110,4 @@ const petform = () => {
   );
 };
 
-export default petform;
+export default PetForm;

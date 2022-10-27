@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const PetList = ({
-  Pets,
+  pets,
   petName,
   showpetName = true,
   showuserFullname = true,
@@ -13,24 +13,21 @@ const PetList = ({
 
   return (
     <div>
-      {showpetName && <h3>{title}</h3>}
+      {showpetName && <h3>{petName}</h3>}
       {pets &&
         pets.map((pet) => (
           <div key={pet._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showuserFullname ? (
-                <Link
-                  className="text-light"
-                  to={`/profiles/${pet.petUser}`}
-                >
+                <Link className="text-light" to={`/profiles/${pet.petUser}`}>
                   {pet.petUser} <br />
-                  <span style={{ fontSize: '1rem' }}>
+                  <span style={{ fontSize: "1rem" }}>
                     has added a pet on {pet.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: '1rem' }}>
+                  <span style={{ fontSize: "1rem" }}>
                     You added a pet on {pet.createdAt}
                   </span>
                 </>
@@ -42,12 +39,11 @@ const PetList = ({
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/pets/${pet._id}`}
-            >
-            </Link>
+            ></Link>
           </div>
         ))}
     </div>
   );
 };
 
-export default petList;
+export default PetList;
