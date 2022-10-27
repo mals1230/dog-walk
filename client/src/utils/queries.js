@@ -24,6 +24,16 @@ export const QUERY_PETS = gql`
   }
 `;
 
+export const QUERY_WALK = gql`
+  query getWalk {
+    walks {
+        _id
+        walkDuration
+        walkTime
+        walkDate
+    }
+  }
+`;
 export const QUERY_ME = gql`
   query me {
     me {
