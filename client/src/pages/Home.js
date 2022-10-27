@@ -2,19 +2,20 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 
 // Must make components/PetForm and /PetList
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm";
+// import ThoughtList from "../components/ThoughtList";
+// import ThoughtForm from "../components/ThoughtForm";
 
-import { PLACEHOLDER } from "../utils/queries";
+// import { PLACEHOLDER } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(PLACEHOLDER);
-  const Pet = data?.Pet || [];
+  // const { loading, data } = useQuery(PLACEHOLDER);
+  // const Pet = data?.Pet || [];
 
   return (
     <main>
       <div className="flex-row justify-center">
-        <div
+        homepage
+        {/* <div
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: "1px dotted #1a1a1a" }}
         >
@@ -26,7 +27,7 @@ const Home = () => {
           ) : (
             <ThoughtList Pet={Pet} title="Pets registered" />
           )}
-        </div>
+        </div> */}
       </div>
     </main>
   );

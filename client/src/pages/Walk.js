@@ -7,8 +7,9 @@ import CommentList from "../components/CommentList";
 import CommentForm from "../components/CommentForm";
 
 import { placeholder } from "../utils/queries";
+import { BookWalk } from "../../../server/models";
 
-const SingleThought = () => {
+const BookWalk = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const { thoughtId } = useParams();
 
@@ -54,4 +55,4 @@ const SingleThought = () => {
   );
 };
 
-export default SingleThought;
+export default BookWalk;
