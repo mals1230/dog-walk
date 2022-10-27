@@ -17,9 +17,12 @@ const resolvers = {
     pet: async (parent, { petId }) => {
       return Pet.findOne({ _id: petId });
     },
-    walk: async (parent, { bookWalkId }) => {
-      return BookWalk.findOne({ _id: bookWalkId });
-    },
+    
+    // COMMENTING OUT UNTIL BRYAN / MIKE HELP US WITH SERVER ISSUE
+    // walk: async (parent, { bookWalkId }) => {
+    //   return BookWalk.findOne({ _id: bookWalkId });
+    // },
+  
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("pet");
