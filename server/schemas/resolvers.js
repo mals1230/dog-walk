@@ -17,6 +17,9 @@ const resolvers = {
     pet: async (parent, { petId }) => {
       return Pet.findOne({ _id: petId });
     },
+    walk: async (parent, { bookWalkId }) => {
+      return BookWalk.findOne({ _id: bookWalkId });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("pet");
@@ -26,7 +29,6 @@ const resolvers = {
     // walk: async (parent, { BookWalk }) => {
     //   return BookWalk.findOne({ _id: BookWalk }).populate("pet");
     // },
-    // singlewalk:
   },
 
   Mutation: {
