@@ -18,10 +18,9 @@ const resolvers = {
       return Pet.findOne({ _id: petId });
     },
     
-    // COMMENTING OUT UNTIL BRYAN / MIKE HELP US WITH SERVER ISSUE
-    // walk: async (parent, { bookWalkId }) => {
-    //   return BookWalk.findOne({ _id: bookWalkId });
-    // },
+    walks: async () => {
+      return BookWalk.find({});
+    },
   
     me: async (parent, args, context) => {
       if (context.user) {
