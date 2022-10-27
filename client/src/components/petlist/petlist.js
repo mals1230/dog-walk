@@ -41,7 +41,7 @@ const PetList = ({
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${pet._id}`}
+              to={`/pets/${pet._id}`}
             >
             </Link>
           </div>
