@@ -81,7 +81,7 @@ const petform = () => {
               <textarea
                 name="petName"
                 placeholder="My dog's name is..."
-                value={thoughtText}
+                value={petName}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -90,7 +90,7 @@ const petform = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Pet
               </button>
             </div>
             {error && (
@@ -102,7 +102,7 @@ const petform = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to add your thoughts. Please{' '}
+          You need to be logged in to add your pet/s. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
