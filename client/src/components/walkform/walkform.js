@@ -18,19 +18,19 @@ const walkform = () => {
         const { pets } = cache.readQuery({ query: QUERY_WALK });
 
         cache.writeQuery({
-          query: QUERY_PETS,
-          data: { pets: [addPet, ...pets] },
+          query: QUERY_WALK,
+          data: { walk: [addWalk, ...walks] },
         });
       } catch (e) {
         console.error(e);
       }
 
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, pets: [...me.pets, addPet] } },
-      });
+    //   // update me object's cache
+    //   const { me } = cache.readQuery({ query: QUERY_ME });
+    //   cache.writeQuery({
+    //     query: QUERY_ME,
+    //     data: { me: { ...me, pets: [...me.pets, addPet] } },
+    //   });
     },
   });
 
@@ -38,10 +38,14 @@ const walkform = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addPet({
+      const { data } = await addWalk({
         variables: {
           petName,
           petUser: Auth.getProfile().data.userFullname,
+          walkDate,
+          walkTime,
+          walkDuration,
+          dogWalker,
         },
       });
 
@@ -62,7 +66,7 @@ const walkform = () => {
 
   return (
     <div>
-      <h3>Who would you like for us to walk?</h3>
+      <h3>When would you like your dog/s walked?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -79,9 +83,9 @@ const walkform = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="petName"
-                placeholder="My dog's name is..."
-                value={petName}
+                name="walk"
+                placeholder="please walk my dog.."
+                value={walkDate}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -90,7 +94,7 @@ const walkform = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Pet
+                Add Walk
               </button>
             </div>
             {error && (
@@ -102,7 +106,7 @@ const walkform = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to add your pet/s. Please{' '}
+          You need to be logged in to book a walk. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
