@@ -15,22 +15,22 @@ const walkform = () => {
   const [addWalk, { error }] = useMutation(ADD_WALK, {
     update(cache, { data: { addWalk } }) {
       try {
-        const { pets } = cache.readQuery({ query: QUERY_WALK });
+        const { walks } = cache.readQuery({ query: QUERY_WALK });
 
         cache.writeQuery({
           query: QUERY_WALK,
-          data: { walk: [addWalk, ...walks] },
+          data: { walks: [addWalk, ...walks] },
         });
       } catch (e) {
         console.error(e);
       }
 
-    //   // update me object's cache
-    //   const { me } = cache.readQuery({ query: QUERY_ME });
-    //   cache.writeQuery({
-    //     query: QUERY_ME,
-    //     data: { me: { ...me, pets: [...me.pets, addPet] } },
-    //   });
+      // update me object's cache
+      const { me } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { me: { ...me, pets, walks: [...me.pets.walks, addWalk] } },
+      });
     },
   });
 
@@ -49,7 +49,7 @@ const walkform = () => {
         },
       });
 
-      setPetText('');
+      setbookWalk('');
     } catch (err) {
       console.error(err);
     }
@@ -58,8 +58,8 @@ const walkform = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'petName' && value.length <= 280) {
-      setPetText(value);
+    if (name === 'addWalk' && value.length <= 280) {
+      setbookWalk(value);
       setCharacterCount(value.length);
     }
   };
