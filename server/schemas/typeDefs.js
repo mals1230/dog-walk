@@ -41,7 +41,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    pet(petId: ID!): Pet
+    pet(petId: ID!): [Pet]
     me: User
   }
 
@@ -54,9 +54,7 @@ const typeDefs = gql`
     ): Auth
     login(email: String!, password: String!): Auth
 
-    removeUser(
-      userID: ID!
-    ): User
+    removeUser(userID: ID!): User
 
     addPet(
       petName: String!
@@ -66,11 +64,9 @@ const typeDefs = gql`
       petInstruction: String!
       petEmergency: String!
     ): Pet
-    
-    removePet(
-      petId: ID!
-    ): Pet
-    
+
+    removePet(petId: ID!): Pet
+
     addWalk(
       walkDate: String!
       walkTime: String!
@@ -78,14 +74,9 @@ const typeDefs = gql`
       pet: ID!
       dogWalker: ID!
     ): BookWalk
-    
-    removeWalk(
-      pet: ID!, 
-      walkId: ID!
-    ): BookWalk
+
+    removeWalk(pet: ID!, walkId: ID!): BookWalk
   }
 `;
 
 module.exports = typeDefs;
-
-
