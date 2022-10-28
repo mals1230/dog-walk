@@ -41,7 +41,7 @@ const PetForm = () => {
       const { data } = await addPet({
         variables: {
           petName,
-          petUser: Auth.getProfile().data.userFullname,
+          petUser: Auth.getProfile().data.userFullName,
         },
       });
 
