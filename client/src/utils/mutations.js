@@ -29,18 +29,17 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PET = gql`
-  mutation addPet($petName: String!) {
-    addPet(petText: $petName) {
-      _id
-      petName
-      petUser
-      walk {
-        _id
-        walkName
-        walkDuration
-      }
-    }
+  mutation addPet ($petName: String!, $petBreed: String!, $petAge: Int!, $petWeight: Int!, $petInstruction: String!, $petEmergency: String!) {
+  addPet(petName: $petName, petBreed: $petBreed, petAge: $petAge, petWeight: $petWeight, petInstruction: $petInstruction, petEmergency: $petEmergency) {
+    _id
+    petName
+    petBreed
+    petAge
+    petWeight
+    petInstruction
+    petEmergency
   }
+}
 `;
 
 export const ADD_WALK = gql`
