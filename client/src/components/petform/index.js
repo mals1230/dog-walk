@@ -8,34 +8,14 @@ import Auth from "../../utils/auth";
 const PetForm = () => {
   const [petName, setPetName] = useState("");
   const [petBreed, setPetBreed] = useState("");
-  const [petAge, setAge] = useState("");
-  const [petWeight, setWeight] = useState("");
-  const [petInstructions, setInstructions] = useState("");
-  const [petEmergency, setEmergency] = useState("");
+  const [petAge, setPetAge] = useState(0);
+  const [petWeight, setPetWeight] = useState(0);
+  const [petInstruction, setPetInstructions] = useState("");
+  const [petEmergency, setPetEmergency] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPet, { error }] = useMutation(ADD_PET, {
-    update(cache, { data: { addPet } }) {
-      try {
-        const { pets } = cache.readQuery({ query: QUERY_PETS });
-
-        cache.writeQuery({
-          query: QUERY_PETS,
-          data: { pets: [addPet, ...pets] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, pets: [...me.pets, addPet] } },
-      });
-    },
-  });
+  const [addPet, { error }] = useMutation(ADD_PET);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -47,18 +27,17 @@ const PetForm = () => {
           petBreed,
           petAge,
           petWeight,
-          petInstructions,
+          petInstruction,
           petEmergency,
-          petUser: Auth.getProfile().data.userFullName,
         },
       });
 
       setPetName("");
       setPetBreed("");
-      setAge("");
-      setWeight("");
-      setInstructions("");
-      setEmergency("");
+      setPetAge("");
+      setPetWeight("");
+      setPetInstructions("");
+      setPetEmergency("");
     } catch (err) {
       console.error(err);
     }
@@ -70,6 +49,16 @@ const PetForm = () => {
     if (name === "petName" && value.length <= 280) {
       setPetName(value);
       setCharacterCount(value.length);
+    } if (name === "petBreed" && value.length <= 280) {
+      setPetBreed(value);
+    } if (name === "petAge" && value.length <= 280) {
+      setPetAge(parseInt(value));
+    } if (name === "petWeight" && value.length <= 280) {
+      setPetWeight(parseInt(value));
+    } if (name === "petInstructions" && value.length <= 280) {
+      setPetInstructions(value);
+    } if (name === "petEmergency" && value.length <= 280) {
+      setPetEmergency(value);
     }
   };
 
@@ -79,6 +68,13 @@ const PetForm = () => {
 
       {Auth.loggedIn() ? (
         <>
+          <p
+            className={`m-0 ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/280
+          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -127,7 +123,7 @@ const PetForm = () => {
               <textarea
                 name="petInstructions"
                 placeholder="Address, Entry Instructions, Pet care instructions"
-                value={petInstructions}
+                value={petInstruction}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}

@@ -76,7 +76,7 @@ const resolvers = {
           petWeight,
           petInstruction,
           petEmergency,
-          petUser: context.user.userFullName,
+          petUser: context.user._id,
         });
         console.log(pet);
         console.log(context.user);
