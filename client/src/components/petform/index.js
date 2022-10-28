@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-
 import { ADD_PET } from "../../utils/mutations";
 import { QUERY_PETS, QUERY_ME } from "../../utils/queries";
-
 import Auth from "../../utils/auth";
 
 const PetForm = () => {
-  const [petName, setPetName] = useState("");
+  const [petName, setPetName;] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -41,6 +39,11 @@ const PetForm = () => {
       const { data } = await addPet({
         variables: {
           petName,
+          petBreed,
+          petAge,
+          petWeight,
+          petInstructions,
+          petEmergency,
           petUser: Auth.getProfile().data.userFullName,
         },
       });
@@ -87,6 +90,57 @@ const PetForm = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="petBreed"
+                placeholder="My dog's breed is ... "
+                value={petBreed}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="petName"
+                placeholder="Age of dog"
+                value={petAge}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="petName"
+                placeholder="Weight of dog"
+                value={petWeight}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="petName"
+                placeholder="Address, Entry Instructions, Pet care instructions"
+                value={petInstructions}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="petName"
+                placeholder="Emergency info:"
+                value={petEmergency}
+                className="form-input w-100"
+                style={{ lineHeight: "1.5", resize: "vertical" }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">

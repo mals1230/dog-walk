@@ -2,8 +2,8 @@ import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import petform from '../components/petform';
-import petlist from '../components/petlist';
+import petform from '../components/PetForm';
+import petlist from '../components/PetList';
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
