@@ -15,7 +15,7 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from './pages/Profile';
 import Header from "./components/Header";
-// import PetForm from "./components/PetForm";
+// import BookWalk from "./pages/BookWalk";
 // import WalkForm from "./components/WalkForm";
 import Footer from "./components/Footer";
 
@@ -55,8 +55,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/me" element={<Profile />} />
+              {/* <Route path="/bookwalk" element={<BookWalk />} /> */}
               {/* <Route path="/me" element={<Profile />} />
-              <Route path="/me" element={<Profile />} />
               <Route path="/me" element={<Profile />} /> */}
               <Route path="/about" element={<About />} />
             </Routes>
