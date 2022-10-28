@@ -2,8 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 
 // Must make components/PetForm and /PetList
-import PetList from "../components/petlist";
-import PetForm from "../components/petform";
+import PetList from "../components/PetList";
+import PetForm from "../components/PetForm";
 
 import { QUERY_PETS } from "../utils/queries";
 
