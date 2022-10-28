@@ -39,11 +39,11 @@ const PetForm = () => {
       const { data } = await addPet({
         variables: {
           petName,
-          petBreed,
-          petAge,
-          petWeight,
-          petInstructions,
-          petEmergency,
+          // petBreed,
+          // petAge,
+          // petWeight,
+          // petInstructions,
+          // petEmergency,
           petUser: Auth.getProfile().data.userFullName,
         },
       });
@@ -90,7 +90,7 @@ const PetForm = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
-            <div className="col-12 col-lg-9">
+            {/* <div className="col-12 col-lg-9">
               <textarea
                 name="petBreed"
                 placeholder="My dog's breed is ... "
@@ -138,8 +138,8 @@ const PetForm = () => {
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
+              ></textarea> */}
+            {/* </div> */}
 
 
             <div className="col-12 col-lg-3">

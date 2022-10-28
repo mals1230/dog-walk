@@ -15,8 +15,8 @@ import Login from "./pages/Login";
 import About from "./pages/About";
 import Profile from './pages/Profile';
 import Header from "./components/Header";
-import PetForm from "./components/PetForm";
-import WalkForm from "./components/WalkForm";
+// import PetForm from "./components/PetForm";
+// import WalkForm from "./components/WalkForm";
 import Footer from "./components/Footer";
 
 // Construct our main GraphQL API endpoint
