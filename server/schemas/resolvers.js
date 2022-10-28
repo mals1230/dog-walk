@@ -10,18 +10,19 @@ const resolvers = {
     // user: async (parent, { userfullname }) => {
     //   return User.findOne({ userfullname }).populate("pet");
     // },
-    // pets: async (parent, { userfullname }) => {
-    //   const params = userfullname ? { userfullname } : {};
-    //   return Pet.find(params).sort({ createdAt: -1 });
-    // },
+    pets: async (parent, args, context) => {
+      const user = context.user._id;
+      return User.find({_id:user}).populate("pet");
+    },
+
     pet: async (parent, { petId }) => {
       return Pet.findOne({ _id: petId });
     },
-    
+
     walks: async () => {
       return BookWalk.find({});
     },
-  
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("pet");
@@ -62,9 +63,12 @@ const resolvers = {
       return { token, user };
     },
 
-    addPet: async (parent, { petName, petBreed, petAge, petWeight, petInstruction, petEmergency }, context) => {
-      if (context.user) 
-      {
+    addPet: async (
+      parent,
+      { petName, petBreed, petAge, petWeight, petInstruction, petEmergency },
+      context
+    ) => {
+      if (context.user) {
         const pet = await Pet.create({
           petName,
           petBreed,
@@ -82,12 +86,17 @@ const resolvers = {
 
         return pet;
       }
-      throw new AuthenticationError("You need to be logged in to add your pet!");
+      throw new AuthenticationError(
+        "You need to be logged in to add your pet!"
+      );
     },
 
-    addWalk: async (parent, { walkDate, walkTime, walkDuration, dogWalker, pet }, context) => {
+    addWalk: async (
+      parent,
+      { walkDate, walkTime, walkDuration, dogWalker, pet },
+      context
+    ) => {
       if (context.user) {
-
         // return Pet.findOneAndUpdate(
         //   { _id: petId },
         //   {
@@ -100,11 +109,19 @@ const resolvers = {
         //     runValidators: true,
         //   }
         // );
-        const bookWalk = await BookWalk.create({ walkDate, walkTime, walkDuration, dogWalker, pet, petUser: context.user.userFullName })
-        console.log(bookWalk)
+        const bookWalk = await BookWalk.create({
+          walkDate,
+          walkTime,
+          walkDuration,
+          dogWalker,
+          pet,
+          petUser: context.user.userFullName,
+        });
+        console.log(bookWalk);
 
-        return BookWalk.findById( bookWalk._id).populate("dogWalker").populate("pet")
-
+        return BookWalk.findById(bookWalk._id)
+          .populate("dogWalker")
+          .populate("pet");
       }
       throw new AuthenticationError("You need to be logged in to book a walk!");
     },
@@ -122,7 +139,9 @@ const resolvers = {
 
         return pet;
       }
-      throw new AuthenticationError("You need to be logged in to remove a pet!");
+      throw new AuthenticationError(
+        "You need to be logged in to remove a pet!"
+      );
     },
     removeWalk: async (parent, { petId, walkId }, context) => {
       if (context.user) {
@@ -139,9 +158,11 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError("You need to be logged in to cancel a walk!");
+      throw new AuthenticationError(
+        "You need to be logged in to cancel a walk!"
+      );
     },
-    removeUser:  async (parent, { petId, walkId }, context) => {
+    removeUser: async (parent, { petId, walkId }, context) => {
       if (context.user) {
         return pet.findOneAndUpdate(
           { _id: petId },
@@ -156,7 +177,9 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError("You need to be logged in to delete your account!");
+      throw new AuthenticationError(
+        "You need to be logged in to delete your account!"
+      );
     },
   },
 };

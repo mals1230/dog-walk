@@ -21,7 +21,7 @@ const userSchema = new Schema({
   },
   address: {
     type: String,
-    required: true,
+    // required: true,
     minlength: 5,
   },
   pet: [
