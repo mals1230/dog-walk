@@ -13,7 +13,7 @@ const PetForm = () => {
   const [petInstructions, setInstructions] = useState("");
   const [petEmergency, setEmergency] = useState("");
 
-  // const [characterCount, setCharacterCount] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
 
   const [addPet, { error }] = useMutation(ADD_PET, {
     update(cache, { data: { addPet } }) {
