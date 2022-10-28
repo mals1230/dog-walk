@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
@@ -16,11 +15,11 @@ const Signup = () => {
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { userFullName, value } = event.target;
+    const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [userFullName]: value,
+      [name]: value,
     });
   };
 
@@ -57,8 +56,8 @@ const Signup = () => {
                   className="form-input"
                   placeholder="Your Name"
                   name="name"
-                  type="text"
-                  value={formState.userFullName}
+                  type="name"
+                  value={formState.name}
                   onChange={handleChange}
                 />
                 <input
