@@ -8,8 +8,8 @@ import Auth from "../../utils/auth";
 const PetForm = () => {
   const [petName, setPetName] = useState("");
   const [petBreed, setPetBreed] = useState("");
-  const [petAge, setPetAge] = useState(0);
-  const [petWeight, setPetWeight] = useState(0);
+  const [petAge, setPetAge] = useState();
+  const [petWeight, setPetWeight] = useState();
   const [petInstruction, setPetInstructions] = useState("");
   const [petEmergency, setPetEmergency] = useState("");
 
