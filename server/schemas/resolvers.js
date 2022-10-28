@@ -12,7 +12,7 @@ const resolvers = {
     // },
     pets: async (parent, args, context) => {
       const user = context.user._id;
-      return User.find({_id:user}).populate("pet");
+      return User.find({ _id: user }).populate("pet");
     },
 
     pet: async (parent, { petId }) => {
@@ -78,12 +78,15 @@ const resolvers = {
           petEmergency,
           petUser: context.user.userFullName,
         });
+        console.log(pet);
+        console.log(context.user);
 
-        await User.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { pets: pet._id } }
+          { $addToSet: { pet: pet._id } },
+          { new: true }
         );
-
+        console.log(user);
         return pet;
       }
       throw new AuthenticationError(

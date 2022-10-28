@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const petSchema = new Schema({
   petName: {
@@ -35,8 +35,12 @@ const petSchema = new Schema({
     minlength: 1,
     maxlength: 280,
   },
+  petUser: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
-const Pet = model('Pet', petSchema);
+const Pet = model("Pet", petSchema);
 
 module.exports = Pet;
