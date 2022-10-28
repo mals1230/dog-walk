@@ -6,7 +6,7 @@ import { QUERY_PETS, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const PetForm = () => {
-  const [petName, setPetName;] = useState("");
+  const [petName, setPetName] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
