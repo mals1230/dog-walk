@@ -12,27 +12,27 @@ const walkform = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addWalk, { error }] = useMutation(ADD_WALK, {
-    update(cache, { data: { addWalk } }) {
-      try {
-        const { walks } = cache.readQuery({ query: QUERY_WALK });
+  // const [addWalk, { error }] = useMutation(ADD_WALK, {
+  //   update(cache, { data: { addWalk } }) {
+  //     try {
+  //       const { walks } = cache.readQuery({ query: QUERY_WALK });
 
-        cache.writeQuery({
-          query: QUERY_WALK,
-          data: { walks: [addWalk, ...walks] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+  //       cache.writeQuery({
+  //         query: QUERY_WALK,
+  //         data: { walks: [addWalk, ...walks] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+      // }
 
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, pets, walks: [...me.pets.walks, addWalk] } },
-      });
-    },
-  });
+  //     // update me object's cache
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, pets, walks: [...me.pets.walks, addWalk] } },
+  //     });
+  //   },
+  // });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -58,9 +58,21 @@ const walkform = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'addWalk' && value.length <= 280) {
-      setbookWalk(value);
-      setCharacterCount(value.length);
+    // if (name === 'addWalk' && value.length <= 280) {
+    // //   setaddWalk(value);
+    // //   setCharacterCount(value.length);
+    // }
+     if (name === "walkDate" && value.length <= 280) {
+      setwalkDate(value);
+    } if (name === "walkTime" && value.length <= 280) {
+      setwalkTime(parseInt(value));
+    } if (name === "walkDuration" && value.length <= 280) {
+      setwalkDuration(parseInt(value));
+    } if (name === "dogWalker" && value.length <= 280) {
+      setdogWalker(value);
+    } if (name === "petName" && value.length <= 280) {
+      setpetName(value);
+    }
     }
   };
 
@@ -112,6 +124,6 @@ const walkform = () => {
       )}
     </div>
   );
-};
+;
 
 export default petform;
