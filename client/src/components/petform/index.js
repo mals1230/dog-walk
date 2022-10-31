@@ -49,32 +49,37 @@ const PetForm = () => {
     if (name === "petName" && value.length <= 280) {
       setPetName(value);
       setCharacterCount(value.length);
-    } if (name === "petBreed" && value.length <= 280) {
+    }
+    if (name === "petBreed" && value.length <= 280) {
       setPetBreed(value);
-    } if (name === "petAge" && value.length <= 280) {
+    }
+    if (name === "petAge" && value.length <= 280) {
       setPetAge(parseInt(value));
-    } if (name === "petWeight" && value.length <= 280) {
+    }
+    if (name === "petWeight" && value.length <= 280) {
       setPetWeight(parseInt(value));
-    } if (name === "petInstructions" && value.length <= 280) {
+    }
+    if (name === "petInstructions" && value.length <= 280) {
       setPetInstructions(value);
-    } if (name === "petEmergency" && value.length <= 280) {
+    }
+    if (name === "petEmergency" && value.length <= 280) {
       setPetEmergency(value);
     }
   };
 
   return (
     <div>
-      <h3>Who would you like for us to walk?</h3>
+      <h4>Register a new pet!</h4>
 
       {Auth.loggedIn() ? (
         <>
-          <p
+          {/* <p
             className={`m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
             Character Count: {characterCount}/280
-          </p>
+          </p> */}
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -140,7 +145,7 @@ const PetForm = () => {
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
+            <div className="col-12 col-lg-9">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Add Pet
               </button>
