@@ -12,7 +12,7 @@ const walkform = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  // const [addWalk, { error }] = useMutation(ADD_WALK, {
+  const [addWalk, { error }] = useMutation(ADD_WALK); 
   //   update(cache, { data: { addWalk } }) {
   //     try {
   //       const { walks } = cache.readQuery({ query: QUERY_WALK });
@@ -41,7 +41,7 @@ const walkform = () => {
       const { data } = await addWalk({
         variables: {
           petName,
-          petUser: Auth.getProfile().data.userFullname,
+          // petUser: Auth.getProfile().data.userFullname,
           walkDate,
           walkTime,
           walkDuration,
@@ -49,7 +49,7 @@ const walkform = () => {
         },
       });
 
-      setbookWalk('');
+      setBookWalk('');
     } catch (err) {
       console.error(err);
     }
