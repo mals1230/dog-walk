@@ -7,8 +7,12 @@ import { QUERY_PETS, QUERY_WALK, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const walkform = () => {
-  const [petName, setpetName] = useState('');
+const walkForm = () => {
+  const [walkDate, setWalkDate] = useState('');
+  const [walkTime, setWalkTime] = useState('');
+  const [walkDuration, setWalkDuration] = useState('');
+  const [dogWalker, setDogWalker] = useState('');
+  const [pet, setPet] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -99,9 +103,49 @@ const walkform = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="walk"
-                placeholder="please walk my dog.."
+                name="walkDate"
+                placeholder="Date of walk request"
                 value={walkDate}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="walkTime"
+                placeholder="Time of walk request"
+                value={walkTime}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="walkDuration"
+                placeholder="requested duration"
+                value={walkDuration}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="dogWalker"
+                placeholder="requested walker"
+                value={dogWalker}
+                className="form-input w-100"
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="col-12 col-lg-9">
+              <textarea
+                name="pet"
+                placeholder="name of pet to be walked"
+                value={pet}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -130,4 +174,4 @@ const walkform = () => {
   );
 ;
 
-export default petform;
+export default walkForm;
