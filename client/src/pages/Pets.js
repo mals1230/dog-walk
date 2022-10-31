@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 // Must make components/PetForm and /PetList
 import PetList from "../components/PetList";
 import PetForm from "../components/PetForm";
-
+import WalkForm from "../components/WalkForm";
 
 const Pets = ({ pets }) => {
 
@@ -17,6 +17,7 @@ const Pets = ({ pets }) => {
           style={{ border: "1px dotted #1a1a1a" }}
         >
           <PetForm />
+          <WalkForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
 
@@ -24,6 +25,7 @@ const Pets = ({ pets }) => {
           <PetList pets={pets} title="Pets registered" />
 
         </div>
+
       </div>
     </main>
   );
