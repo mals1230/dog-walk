@@ -69,7 +69,7 @@ const PetForm = () => {
 
   return (
     <div>
-      <h3>Who would you like for us to walk?</h3>
+      <h4>Register a new pet!</h4>
 
       {Auth.loggedIn() ? (
         <>
