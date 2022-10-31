@@ -8,13 +8,13 @@ import { ADD_WALK } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const WalkForm = () => {
-  const [walkDate, setWalkDate] = useState('');
-  const [walkTime, setWalkTime] = useState('');
-  const [walkDuration, setWalkDuration] = useState('');
-  const [dogWalker, setDogWalker] = useState('');
-  const [pet, setPet] = useState('');
+  const [walkDate, setWalkDate] = useState("");
+  const [walkTime, setWalkTime] = useState("");
+  const [walkDuration, setWalkDuration] = useState("");
+  const [dogWalker, setDogWalker] = useState("");
+  // const [pet, setPet] = useState("");
 
-  const [characterCount, setCharacterCount] = useState(0);
+  // const [characterCount, setCharacterCount] = useState(0);
 
   const [addWalk, { error }] = useMutation(ADD_WALK);
 
@@ -24,12 +24,11 @@ const WalkForm = () => {
     try {
       const { data } = await addWalk({
         variables: {
-          petUser: Auth.getProfile().data.userFullName,
           walkDate,
           walkTime,
           walkDuration,
           dogWalker,
-          pet
+          // pet
         },
       });
 
@@ -37,7 +36,7 @@ const WalkForm = () => {
       setWalkTime("");
       setWalkDuration("");
       setDogWalker("");
-      setPet("");
+      // setPet("");
     } catch (err) {
       console.error(err);
     }
@@ -49,16 +48,16 @@ const WalkForm = () => {
     if (name === "walkDate" && value.length <= 280) {
       setWalkDate(value);
     } if (name === "walkTime" && value.length <= 280) {
-      setWalkTime(parseInt(value));
+      setWalkTime(value);
     } if (name === "walkDuration" && value.length <= 280) {
-      setWalkDuration(parseInt(value));
+      setWalkDuration(value);
     } if (name === "dogWalker" && value.length <= 280) {
       setDogWalker(value);
-    } if (name === "petName" && value.length <= 280) {
-      setPet(value);
-    }
+    // } if (name === "petName" && value.length <= 280) {
+    //   setPet(value);
+    // }
   };
-
+}
 
   return (
     <div>
@@ -111,7 +110,7 @@ const WalkForm = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
-            <div className="col-12 col-lg-9">
+            {/* <div className="col-12 col-lg-9">
               <textarea
                 name="pet"
                 placeholder="name of pet to be walked"
@@ -120,18 +119,18 @@ const WalkForm = () => {
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
-            </div>
+            </div> */}
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Add Walk
               </button>
             </div>
-            {/* {error && (
+            {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">
                 {error.message}
               </div>
-            )} */}
+            )}
           </form>
         </>
       ) : (

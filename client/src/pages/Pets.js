@@ -1,12 +1,13 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 
 // Must make components/PetForm and /PetList
 import PetList from "../components/PetList";
 import PetForm from "../components/PetForm";
 import WalkForm from "../components/WalkForm";
+import WalkList from "../components/walklist";
 
-const Pets = ({ pets }) => {
+const Pets = ({ pets, walks}) => {
 
   return (
     <main>
@@ -23,10 +24,10 @@ const Pets = ({ pets }) => {
           <p>My Pets</p>
 
 
-          <PetList pets={pets} title="Pets registered" />
+          <PetList pets={pets} petName="Pets registered" />
 
         </div>
-
+<WalkList walks={walks} walkDate="walks" />
       </div>
     </main>
   );

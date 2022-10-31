@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     address: String
     pet: [Pet]
+    walk: [BookWalk]
   }
 
   type Pet {
@@ -24,9 +25,9 @@ const typeDefs = gql`
     _id: ID
     walkDate: String
     walkTime: String
-    walkDuration: Int
-    dogWalker: [DogWalker]
-    pet: [Pet]
+    walkDuration: String
+    dogWalker: String
+    
   }
 
   type DogWalker {
@@ -73,9 +74,8 @@ const typeDefs = gql`
     addWalk(
       walkDate: String!
       walkTime: String!
-      walkDuration: Int!
-      pet: ID!
-      dogWalker: ID!
+      walkDuration: String!
+      dogWalker: String!
     ): BookWalk
 
     removeWalk(pet: ID!, walkId: ID!): BookWalk

@@ -43,16 +43,13 @@ export const ADD_PET = gql`
 `;
 
 export const ADD_WALK = gql`
-  mutation addWalk($petId: ID!, $walkName: String!) {
-    addWalk(petId: $petId, walkName: $walkName) {
-      _id
-      petName
-      petUser
-      walk {
-        _id
-        walkName
-        walkDuration
-      }
-    }
+  mutation Mutation($walkDate: String!, $walkTime: String!, $walkDuration: String!, $dogWalker: String!) {
+  addWalk(walkDate: $walkDate, walkTime: $walkTime, walkDuration: $walkDuration, dogWalker: $dogWalker) {
+    _id
+    walkDate
+    walkTime
+    walkDuration
+    dogWalker
   }
+}
 `;
