@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_WALK} from '../../utils/mutations';
-import { QUERY_PETS, QUERY_WALK, QUERY_ME } from '../../utils/queries';
+// import { QUERY_PETS, QUERY_WALK, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -80,7 +80,6 @@ const walkForm = () => {
       setDogWalker(value);
     } if (name === "petName" && value.length <= 280) {
       setPet(value);
-    }
     }
   };
 
