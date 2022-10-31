@@ -7,13 +7,13 @@ const resolvers = {
     // users: async () => {
     //   return User.find().populate('pet');
     // },
-    // user: async (parent, { userfullname }) => {
-    //   return User.findOne({ userfullname }).populate("pet");
+    // userFullName: async (parent, { userFullName }) => {
+    //   return User.findOne({ userFullName }).populate("pet");
     // },
-    pets: async (parent, args, context) => {
-      const user = context.user._id;
-      return User.find({ _id: user }).populate("pet");
-    },
+    // pets: async (parent, args, context) => {
+    //   const user = context.user._id;
+    //   return User.find({ _id: user }).populate("pet");
+    // },
 
     pet: async (parent, { petId }) => {
       return Pet.findOne({ _id: petId });
