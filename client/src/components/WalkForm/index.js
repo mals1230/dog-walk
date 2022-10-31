@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_WALK} from '../../utils/mutations';
+import { ADD_WALK } from '../../utils/mutations';
 // import { QUERY_PETS, QUERY_WALK, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
@@ -16,27 +16,7 @@ const WalkForm = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addWalk, { error }] = useMutation(ADD_WALK); 
-  //   update(cache, { data: { addWalk } }) {
-  //     try {
-  //       const { walks } = cache.readQuery({ query: QUERY_WALK });
-
-  //       cache.writeQuery({
-  //         query: QUERY_WALK,
-  //         data: { walks: [addWalk, ...walks] },
-  //       });
-  //     } catch (e) {
-  //       console.error(e);
-      // }
-
-  //     // update me object's cache
-  //     const { me } = cache.readQuery({ query: QUERY_ME });
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: { me: { ...me, pets, walks: [...me.pets.walks, addWalk] } },
-  //     });
-  //   },
-  // });
+  const [addWalk, { error }] = useMutation(ADD_WALK);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -44,20 +24,20 @@ const WalkForm = () => {
     try {
       const { data } = await addWalk({
         variables: {
-          // petUser: Auth.getProfile().data.userFullname,
+          petUser: Auth.getProfile().data.userFullName,
           walkDate,
           walkTime,
           walkDuration,
           dogWalker,
-          pet,
+          pet
         },
       });
 
-      setWalkDate('');
-      setWalkTime('');
-      setWalkDuration('');
-      setDogWalker('');
-      setPet('');
+      setWalkDate("");
+      setWalkTime("");
+      setWalkDuration("");
+      setDogWalker("");
+      setPet("");
     } catch (err) {
       console.error(err);
     }
@@ -66,36 +46,27 @@ const WalkForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    // if (name === 'addWalk' && value.length <= 280) {
-    // //   setaddWalk(value);
-    // //   setCharacterCount(value.length);
-    // }
-     if (name === "walkDate" && value.length <= 280) {
+    if (name === "walkDate" && value.length <= 280) {
       setWalkDate(value);
     } if (name === "walkTime" && value.length <= 280) {
-      setWalkTime(value);
+      setWalkTime(parseInt(value));
     } if (name === "walkDuration" && value.length <= 280) {
       setWalkDuration(parseInt(value));
     } if (name === "dogWalker" && value.length <= 280) {
       setDogWalker(value);
-    } if (name === "pet" && value.length <= 280) {
+    } if (name === "petName" && value.length <= 280) {
       setPet(value);
     }
   };
 
+
   return (
     <div>
-      <h3>When would you like your dog/s walked?</h3>
 
       {Auth.loggedIn() ? (
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
+          <h3>Book A Walk!</h3>
+         
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -103,7 +74,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDate"
-                placeholder="Requested Date?"
+                placeholder="Date of walk request"
                 value={walkDate}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -113,7 +84,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkTime"
-                placeholder="Requested Time?"
+                placeholder="Time of walk request"
                 value={walkTime}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -123,7 +94,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDuration"
-                placeholder="Requested Walk Duration?"
+                placeholder="requested duration"
                 value={walkDuration}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -133,7 +104,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="dogWalker"
-                placeholder="Requested Dog Walker?"
+                placeholder="requested walker"
                 value={dogWalker}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -143,7 +114,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="pet"
-                placeholder="Name of pet to be walked"
+                placeholder="name of pet to be walked"
                 value={pet}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -156,11 +127,11 @@ const WalkForm = () => {
                 Add Walk
               </button>
             </div>
-            {error && (
+            {/* {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">
                 {error.message}
               </div>
-            )}
+            )} */}
           </form>
         </>
       ) : (
