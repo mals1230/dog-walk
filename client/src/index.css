@@ -1596,11 +1596,15 @@ label form [type="radio"] {
     align-content: center;
   }
   h3 {
-    padding: 40px 0px 20px 40px;
+    padding: 25px 0px 25px 40px;
     justify-content: center;
   }
   h4 {
     padding: 30px 0px 20px 40px;
     justify-content: center;
+  }
+  h5 {
+    padding-top: 30px;
+    font-size: 35px;
   }
 }
