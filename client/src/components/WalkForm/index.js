@@ -7,7 +7,7 @@ import { ADD_WALK} from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
 
-const walkForm = () => {
+const WalkForm = () => {
   const [walkDate, setWalkDate] = useState('');
   const [walkTime, setWalkTime] = useState('');
   const [walkDuration, setWalkDuration] = useState('');
@@ -49,7 +49,7 @@ const walkForm = () => {
           walkTime,
           walkDuration,
           dogWalker,
-          pet
+          pet,
         },
       });
 
@@ -73,12 +73,12 @@ const walkForm = () => {
      if (name === "walkDate" && value.length <= 280) {
       setWalkDate(value);
     } if (name === "walkTime" && value.length <= 280) {
-      setWalkTime(parseInt(value));
+      setWalkTime(value);
     } if (name === "walkDuration" && value.length <= 280) {
       setWalkDuration(parseInt(value));
     } if (name === "dogWalker" && value.length <= 280) {
       setDogWalker(value);
-    } if (name === "petName" && value.length <= 280) {
+    } if (name === "pet" && value.length <= 280) {
       setPet(value);
     }
   };
@@ -103,7 +103,7 @@ const walkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDate"
-                placeholder="Date of walk request"
+                placeholder="Requested Date?"
                 value={walkDate}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -113,7 +113,7 @@ const walkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkTime"
-                placeholder="Time of walk request"
+                placeholder="Requested Time?"
                 value={walkTime}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -123,7 +123,7 @@ const walkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDuration"
-                placeholder="requested duration"
+                placeholder="Requested Walk Duration?"
                 value={walkDuration}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -133,7 +133,7 @@ const walkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="dogWalker"
-                placeholder="requested walker"
+                placeholder="Requested Dog Walker?"
                 value={dogWalker}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -143,7 +143,7 @@ const walkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="pet"
-                placeholder="name of pet to be walked"
+                placeholder="Name of pet to be walked"
                 value={pet}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -171,6 +171,6 @@ const walkForm = () => {
       )}
     </div>
   );
-;
+};
 
-export default walkForm;
+export default WalkForm;
