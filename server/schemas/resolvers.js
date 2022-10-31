@@ -10,10 +10,10 @@ const resolvers = {
     // userFullName: async (parent, { userFullName }) => {
     //   return User.findOne({ userFullName }).populate("pet");
     // },
-    // pets: async (parent, args, context) => {
-    //   const user = context.user._id;
-    //   return User.find({ _id: user }).populate("pet");
-    // },
+    pets: async (parent, args, context) => {
+      const user = context.user._id;
+      return User.find({ _id: user }).populate("pet");
+    },
 
     pet: async (parent, { petId }) => {
       return Pet.findOne({ _id: petId });
@@ -27,6 +27,13 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("pet");
       }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    user: async (parent, args, context) => {
+      console.log("help")
+      // if (context.user) {
+        return User.findOne({ userFullName: args.userFullName }).populate("pet");
+      // }
       throw new AuthenticationError("You need to be logged in!");
     },
     // walk: async (parent, { BookWalk }) => {
@@ -46,6 +53,7 @@ const resolvers = {
       return { token, user };
     },
     login: async (parent, { email, password }) => {
+      console.log("we are logging in!")
       const user = await User.findOne({ email });
 
       if (!user) {

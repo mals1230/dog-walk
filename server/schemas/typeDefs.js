@@ -44,6 +44,7 @@ const typeDefs = gql`
     pets: User
     pet(petId: ID!): Pet
     me: User
+    user(userFullName: String!): User
     walks: [BookWalk]
   }
 
