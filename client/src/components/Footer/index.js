@@ -15,8 +15,8 @@ const Footer = () => {
               &larr; Go Back
             </button>
           )}
-          <h4>
-            Made with 🤍 by your favorite dog walkers.
+          <h4 className="footer-txt">
+            Made with 💚 by your favorite dog walkers.
           </h4>
         </div>
       </footer>
