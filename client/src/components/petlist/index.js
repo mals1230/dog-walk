@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const PetList = ({
   pets,
   petName,
-  showpetName = true,
-  showuserFullname = true,
+  showPetName = true,
+  showUserFullname = true,
 }) => {
   if (!pets.length) {
     return <h3>No pets Yet</h3>;
@@ -13,23 +13,17 @@ const PetList = ({
 
   return (
     <div>
-      {showpetName && <h3>{petName}</h3>}
+      {showPetName && <h3>{petName}</h3>}
       {pets &&
         pets.map((pet) => (
           <div key={pet._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
-              {showuserFullname ? (
+              {showUserFullname ? (
                 <Link className="text-light" to={`/profiles/${pet.petUser}`}>
                   {pet.petUser} <br />
-                  <span style={{ fontSize: "1rem" }}>
-                    has added a pet on {pet.createdAt}
-                  </span>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: "1rem" }}>
-                    You added a pet on {pet.createdAt}
-                  </span>
                 </>
               )}
             </h4>
