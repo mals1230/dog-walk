@@ -40,16 +40,20 @@ const walkform = () => {
     try {
       const { data } = await addWalk({
         variables: {
-          petName,
           // petUser: Auth.getProfile().data.userFullname,
           walkDate,
           walkTime,
           walkDuration,
           dogWalker,
+          pet
         },
       });
 
-      setBookWalk('');
+      setWalkDate('');
+      setWalkTime('');
+      setWalkDuration('');
+      setDogWalker('');
+      setPet('');
     } catch (err) {
       console.error(err);
     }
@@ -63,15 +67,15 @@ const walkform = () => {
     // //   setCharacterCount(value.length);
     // }
      if (name === "walkDate" && value.length <= 280) {
-      setwalkDate(value);
+      setWalkDate(value);
     } if (name === "walkTime" && value.length <= 280) {
-      setwalkTime(parseInt(value));
+      setWalkTime(parseInt(value));
     } if (name === "walkDuration" && value.length <= 280) {
-      setwalkDuration(parseInt(value));
+      setWalkDuration(parseInt(value));
     } if (name === "dogWalker" && value.length <= 280) {
-      setdogWalker(value);
+      setDogWalker(value);
     } if (name === "petName" && value.length <= 280) {
-      setpetName(value);
+      setPet(value);
     }
     }
   };
