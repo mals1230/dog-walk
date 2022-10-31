@@ -16,7 +16,7 @@ const Profile = () => {
     variables: { userFullName: userParam },
   });
 
-  const user = data?.me || data?.user || {};
+  const user = data?.me || data?.userFullName || {};
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.userFullName === userParam) {
     return <Navigate to="/me" />;
@@ -46,8 +46,8 @@ const Profile = () => {
           <PetList
             pets={user.pets}
             title={`${user.userFullName}'s pets...`}
-            showPetName={true}
-            showUserFullName={true}
+            showTitle={false}
+            showUserFullName={false}
           />
         </div>
         {!userParam && (
