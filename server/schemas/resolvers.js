@@ -19,8 +19,9 @@ const resolvers = {
       return Pet.findOne({ _id: petId });
     },
 
-    walks: async () => {
-      return BookWalk.find({});
+    walks: async (parent, args, context) => {
+      const walk = context.bookwalk._id
+      return BookWalk.find({ _id: walk }).populate("walks");
     },
 
     me: async (parent, args, context) => {
@@ -32,13 +33,13 @@ const resolvers = {
     user: async (parent, args, context) => {
       console.log("help")
       // if (context.user) {
-        return User.findOne({ userFullName: args.userFullName }).populate("pet");
+      return User.findOne({ userFullName: args.userFullName }).populate("pet");
       // }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // walk: async (parent, { BookWalk }) => {
-    //   return BookWalk.findOne({ _id: BookWalk }).populate("pet");
-    // },
+    //   walk: async (parent, { BookWalk }) => {
+    //     return BookWalk.findOne({ _id: BookWalk }).populate("walk");
+    //   },
   },
 
   Mutation: {
@@ -104,35 +105,30 @@ const resolvers = {
 
     addWalk: async (
       parent,
-      { walkDate, walkTime, walkDuration, dogWalker, pet },
+      { walkDate, walkTime, walkDuration, dogWalker },
       context
     ) => {
+      console.log("start resolver")
       if (context.user) {
-        // return Pet.findOneAndUpdate(
-        //   { _id: petId },
-        //   {
-        //     $addToSet: {
-        //       walk: { walkDate, walkTime, walkDuration, dogWalker, petId, petUser: context.user.userFullName },
-        //     },
-        //   },
-        //   {
-        //     new: true,
-        //     runValidators: true,
-        //   }
-        // );
-        const bookWalk = await BookWalk.create({
+        console.log("in context")
+        //  todo: add pet
+        const walk = await BookWalk.create({
           walkDate,
           walkTime,
           walkDuration,
           dogWalker,
-          pet,
-          petUser: context.user.userFullName,
-        });
-        console.log(bookWalk);
 
-        return BookWalk.findById(bookWalk._id)
-          .populate("dogWalker")
-          .populate("pet");
+          // petUser: context.user.userFullName,
+        });
+        console.log(walk);
+        const user = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { walk: walk._id } },
+          { new: true }
+        );
+        console.log(user);
+        return walk;
+
       }
       throw new AuthenticationError("You need to be logged in to book a walk!");
     },

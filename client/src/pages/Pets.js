@@ -1,12 +1,15 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 
 // Must make components/PetForm and /PetList
 import PetList from "../components/PetList";
 import PetForm from "../components/PetForm";
 import WalkForm from "../components/WalkForm";
+import WalkList from "../components/walklist";
 
-const Pets = ({ pets }) => {
+
+const Pets = ({ pets, walks}) => {
+
   return (
     <main>
       <div className="flex-row justify-center">
@@ -23,9 +26,15 @@ const Pets = ({ pets }) => {
           <WalkForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
-          <h5>My Registered Pets</h5>
-          <PetList pets={pets} title="Pets registered" />
+
+          <p>My Pets</p>
+
+
+          <PetList pets={pets} petName="Pets registered" />
+
         </div>
+<WalkList walks={walks} walkDate="walks" />
+
       </div>
     </main>
   );

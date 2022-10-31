@@ -11,16 +11,15 @@ const bookWalkSchema = new Schema({
       required: true,
     },
     walkDuration: {
-      type: Number,
+      type: String,
       required: true,
       trim: true,
     },
-    dogWalker: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'DogWalker',
-        },
-      ],
+    dogWalker: {
+      type: String,
+      trim: true,
+    },
+   
     pet: [        {
         type: Schema.Types.ObjectId,
         ref: 'Pet',

@@ -36,6 +36,8 @@ export const QUERY_WALK = gql`
         walkDuration
         walkTime
         walkDate
+        pet
+        dogWalker
     }
   }
 `;
