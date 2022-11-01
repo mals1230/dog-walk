@@ -19,12 +19,15 @@ const bookWalkSchema = new Schema({
       type: String,
       trim: true,
     },
-   
-    pet: [        {
-        type: Schema.Types.ObjectId,
-        ref: 'Pet',
-      },
-    ],
+    petUser: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    // pet: [        {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Pet',
+    //   },
+    // ],
   });
   
   const BookWalk = model('BookWalk', bookWalkSchema);

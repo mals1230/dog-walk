@@ -46,7 +46,7 @@ const typeDefs = gql`
     pet(petId: ID!): Pet
     me: User
     user(userFullName: String!): User
-    walks: [BookWalk]
+    walks: BookWalk
   }
 
   type Mutation {
