@@ -26,10 +26,9 @@ This project is covered under MIT license.  Click on the license badge at the to
 
 ## Screenshots
 ![homepage](https://user-images.githubusercontent.com/110785267/199299306-51d763c9-228b-48c3-9fc8-c80eb68ba5c7.png)
-<img src="./images/homepage.png" alt="Screenshot of Homepage">
-<img src="./images/login.png" alt="Screenshot of Log In Page">
-<img src="./images/signup.png" alt="Screenshot of Sign Up Page">
-<img src="./images/profile.png" alt="Screenshot of Profile Page">
+![login](https://user-images.githubusercontent.com/110785267/199300186-5c0929d7-1136-4296-97af-f5ad90ec7b5d.png)
+![signin](https://user-images.githubusercontent.com/110785267/199300240-c5410a63-f6fc-4f3e-9c22-43b0a5f44a07.png)
+![profile](https://user-images.githubusercontent.com/110785267/199300264-7fa6ec1a-19cf-486b-826c-35118a249bed.png)
 
 ## Contributors
 * Mallory Sheehan
