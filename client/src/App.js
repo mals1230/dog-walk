@@ -13,8 +13,8 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 import Profile from "./pages/Profile";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Headers";
+import Footer from "./components/Footers";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
