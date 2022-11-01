@@ -19,6 +19,7 @@ As a dog owner, we wanted to create a simple application to schedule a walk for 
 We know that other apps like Rover already exist, but with all the horror stories that you hear, we want to eliminate the "stranger danger" aspect and have this app be for one dog walker or team of dog walkers that you know and trust.
 
 ## Usage
+To use this application, you can clone the repository. Once cloned, you will need Node.js installed to run the commands in the CLI, (Command Line Inteface), of your console's terminal along with Mongo DB's Mongoose to create the database and seed the data. Once the database is created, you can run `npm run seed` in your terminal to seed the data into the database, and then to start the application, you can run `npm run develop` in the console. The fully deployed application link can be found in the `Links` section of this ReadMe.
 
 ## Licenses
 This project is covered under MIT license.  Click on the license badge at the top of the README to learn more.
