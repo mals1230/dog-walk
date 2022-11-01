@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import About from "./pages/About";
+
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 // import BookWalk from "./pages/BookWalk";
@@ -55,7 +55,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile/:userFullName" element={<Profile />} />
-              <Route path="/about" element={<About />} />
+              
             </Routes>
           </div>
           <Footer />
