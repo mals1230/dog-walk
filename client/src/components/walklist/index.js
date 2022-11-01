@@ -2,22 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const WalkList = ({
-  walks,
+  walk,
   walkDate,
   showWalkDate = true,
   showUserFullname= true,
 
 
 }) => {
-  if (!walks?.length) {
+  if (!walk?.length) {
     return <h3>No Walks Yet</h3>;
   }
 
   return (
     <div>
       {showWalkDate && <h3>{walkDate}</h3>}
-      {walks &&
-        walks.map((walk) => (
+      {walk &&
+        walk.map((walk) => (
           <div key={walk._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUserFullname ? ( 

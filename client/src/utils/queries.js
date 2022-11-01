@@ -31,7 +31,7 @@ export const QUERY_PETS = gql`
 
 export const QUERY_WALK = gql`
   query getWalk {
-    walks {
+    walk {
         _id
         walkDuration
         walkTime

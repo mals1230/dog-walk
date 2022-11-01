@@ -14,7 +14,7 @@ const resolvers = {
       return Pet.findOne({ _id: petId });
     },
 
-    walks: async (parent, args, context) => {
+    walk: async (parent, args, context) => {
       const walk = context.user._id
       return BookWalk.find({ _id: walk }).populate("walk");
     },
