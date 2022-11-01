@@ -36,10 +36,19 @@ This project is covered under MIT license.  Click on the license badge at the to
 * Sam Gerungan
 * Maia Chargois
 ## Resources
+* HTML
+* JavaScript
+* CSS
+* Node.js
+* Express.js
+* GraphQL
+* MongoDB
+* Mongoose ODM
+* Heroku 
 
 ## Links
 * Repo Link - https://github.com/mals1230/dog-walk
-* Deployed Link - 
+* Deployed Link - https://safe-anchorage-34793.herokuapp.com/login
 
 ## Questions 
 Have questions about this project? Please feel free to go the project's Repo and post an issue.
