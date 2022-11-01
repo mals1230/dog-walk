@@ -1,4 +1,3 @@
-// ADDING SO FILES/FOLDERS WILL GET SENT TO GITHUB
 import React from "react";
 import {
   ApolloClient,
@@ -15,8 +14,6 @@ import Login from "./pages/Login";
 
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
-// import BookWalk from "./pages/BookWalk";
-// import WalkForm from "./components/WalkForm";
 import Footer from "./components/Footer";
 
 // Construct our main GraphQL API endpoint

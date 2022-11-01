@@ -23,11 +23,7 @@ const bookWalkSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    // pet: [        {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Pet',
-    //   },
-    // ],
+    
   });
   
   const BookWalk = model('BookWalk', bookWalkSchema);
