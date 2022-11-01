@@ -24,6 +24,10 @@ We know that other apps like Rover already exist, but with all the horror storie
 This project is covered under MIT license.  Click on the license badge at the top of the README to learn more.
 
 ## Screenshots
+<img src="./images/homepage.png" alt="Screenshot of Homepage">
+<img src="./images/login.png" alt="Screenshot of Log In Page">
+<img src="./images/signup.png" alt="Screenshot of Sign Up Page">
+<img src="./images/profile.png" alt="Screenshot of Profile Page">
 
 ## Contributors
 * Mallory Sheehan
