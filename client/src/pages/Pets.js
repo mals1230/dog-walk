@@ -1,6 +1,6 @@
 import React from "react";
 
-import PetList from "../components/PetList";
+import PetList from "../components/PetLists";
 import PetForm from "../components/PetForm";
 import WalkForm from "../components/WalkForm";
 import WalkList from "../components/walklist";
