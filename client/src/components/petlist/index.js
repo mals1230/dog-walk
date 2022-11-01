@@ -8,7 +8,7 @@ const PetList = ({
   showUserFullname = true,
 }) => {
   if (!pets?.length) {
-    return <h3>No pets Yet</h3>;
+    return <h3>No Pets Yet</h3>;
   }
 
   return (

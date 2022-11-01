@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { ADD_WALK } from "../../utils/mutations";
-// import { QUERY_PETS, QUERY_WALK, QUERY_ME } from '../../utils/queries';
 
 import Auth from "../../utils/auth";
 
@@ -12,10 +11,10 @@ const WalkForm = () => {
   const [walkTime, setWalkTime] = useState("");
   const [walkDuration, setWalkDuration] = useState("");
   const [dogWalker, setDogWalker] = useState("");
-  // const [pet, setPet] = useState("");
+  
 
 
-  // const [characterCount, setCharacterCount] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
 
   const [addWalk, { error }] = useMutation(ADD_WALK);
 
@@ -29,7 +28,6 @@ const WalkForm = () => {
           walkTime,
           walkDuration,
           dogWalker,
-          // pet
         },
       });
 
@@ -37,7 +35,6 @@ const WalkForm = () => {
       setWalkTime("");
       setWalkDuration("");
       setDogWalker("");
-      // setPet("");
     } catch (err) {
       console.error(err);
     }
@@ -55,9 +52,6 @@ const WalkForm = () => {
       setWalkDuration(value);
     } if (name === "dogWalker" && value.length <= 280) {
       setDogWalker(value);
-    // } if (name === "petName" && value.length <= 280) {
-    //   setPet(value);
-    // }
   };
 }
 
@@ -111,17 +105,7 @@ const WalkForm = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
-            {/* <div className="col-12 col-lg-9">
-              <textarea
-                name="pet"
-                placeholder="name of pet to be walked"
-                value={pet}
-                className="form-input w-100"
-                style={{ lineHeight: "1.5", resize: "vertical" }}
-                onChange={handleChange}
-              ></textarea>
-            </div> */}
-
+           
             <div className="col-12 col-lg-9">
               <button className="btn btn-primary btn-block py-3" type="submit">
                 Add Walk

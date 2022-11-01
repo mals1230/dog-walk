@@ -10,7 +10,7 @@ const WalkList = ({
 
 }) => {
   if (!walks?.length) {
-    return <h3>No walks Yet</h3>;
+    return <h3>No Walks Yet</h3>;
   }
 
   return (
@@ -21,8 +21,8 @@ const WalkList = ({
           <div key={walk._id} className="card mb-3">
             <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUserFullname ? ( 
-               <Link className="text-light" to={`/profiles/${walk.walkDate}`}>
-                  {walk.walkDate} <br />
+               <Link className="text-light" to={`/profiles/${walk.petUser}`}>
+                  {walk.petUser} <br />
                  </Link>
               ) : ( 
               <>

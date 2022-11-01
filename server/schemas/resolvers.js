@@ -4,12 +4,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    // users: async () => {
-    //   return User.find().populate('pet');
-    // },
-    // userFullName: async (parent, { userFullName }) => {
-    //   return User.findOne({ userFullName }).populate("pet");
-    // },
+  
     pets: async (parent, args, context) => {
       const user = context.user._id;
       return User.find({ _id: user }).populate("pet");
@@ -20,8 +15,8 @@ const resolvers = {
     },
 
     walks: async (parent, args, context) => {
-      const walk = context.bookwalk._id
-      return BookWalk.find({ _id: walk }).populate("walks");
+      const walk = context.user._id
+      return BookWalk.find({ _id: walk }).populate("walk");
     },
 
     me: async (parent, args, context) => {
@@ -111,14 +106,14 @@ const resolvers = {
       console.log("start resolver")
       if (context.user) {
         console.log("in context")
-        //  todo: add pet
+       
         const walk = await BookWalk.create({
           walkDate,
           walkTime,
           walkDuration,
           dogWalker,
 
-          // petUser: context.user.userFullName,
+         
         });
         console.log(walk);
         const user = await User.findOneAndUpdate(
