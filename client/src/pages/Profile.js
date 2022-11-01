@@ -10,8 +10,8 @@ import Auth from "../utils/auth";
 
 const Profile = () => {
   const { userFullName: userParam } = useParams();
-console.log(userParam)
-  const { loading, data } = useQuery( QUERY_USER,  {
+  console.log(userParam)
+  const { loading, data } = useQuery(QUERY_USER, {
     variables: { userFullName: userParam },
   });
   // const { loadings, datas } = useQuery(QUERY_PETS);
@@ -43,23 +43,7 @@ console.log(userParam)
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.userFullName}'s` : "your"} profile.
         </h2>
-        <Pets pets={user.pet}/>
-        {/* <div className="col-12 col-md-10 mb-5">
-          <PetList
-            pets={user.pets}
-            title={`${user.userFullName}'s pets...`}
-            showTitle={false}
-            showUserFullName={false}
-          />
-        </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: "1px dotted #1a1a1a" }}
-          >
-            <PetForm />
-          </div>
-        )} */}
+        <Pets pets={user.pet} />
       </div>
     </div>
   );

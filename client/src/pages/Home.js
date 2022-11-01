@@ -18,7 +18,6 @@ const Home = () => {
          <Signup />
         </div>
       </div>
-      please work
     </main>
   );
 };
