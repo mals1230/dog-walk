@@ -74,7 +74,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDate"
-                placeholder="Date of walk request"
+                placeholder="Date of Walk Request?"
                 value={walkDate}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -84,7 +84,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkTime"
-                placeholder="Time of walk request"
+                placeholder="Requested Time?"
                 value={walkTime}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -94,7 +94,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="walkDuration"
-                placeholder="requested duration"
+                placeholder="Requested Duration?"
                 value={walkDuration}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -104,7 +104,7 @@ const WalkForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="dogWalker"
-                placeholder="requested walker"
+                placeholder="Requested Dog Walker?"
                 value={dogWalker}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}

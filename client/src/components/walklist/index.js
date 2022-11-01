@@ -10,7 +10,7 @@ const WalkList = ({
 
 }) => {
   if (!walks?.length) {
-    return <h3>No walks Yet</h3>;
+    return <h3>No Walks Yet</h3>;
   }
 
   return (
