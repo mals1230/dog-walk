@@ -25,6 +25,7 @@ To use this application, you can clone the repository. Once cloned, you will nee
 This project is covered under MIT license.  Click on the license badge at the top of the README to learn more.
 
 ## Screenshots
+![Screenshot of the Homepage](/images/homepage.png)
 <img src="./images/homepage.png" alt="Screenshot of Homepage">
 <img src="./images/login.png" alt="Screenshot of Log In Page">
 <img src="./images/signup.png" alt="Screenshot of Sign Up Page">
