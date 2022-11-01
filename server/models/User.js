@@ -30,6 +30,12 @@ const userSchema = new Schema({
       ref: "Pet",
     },
   ],
+  walk: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "BookWalk",
+    }
+  ]
 });
 
 userSchema.pre("save", async function (next) {

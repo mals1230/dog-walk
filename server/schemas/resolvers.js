@@ -15,8 +15,8 @@ const resolvers = {
     },
 
     walks: async (parent, args, context) => {
-      const walk = context.user._id
-      return BookWalk.find({ _id: walk }).populate("walk");
+      const user = context.user._id
+      return User.find({ _id: user }).populate("walk");
     },
 
     me: async (parent, args, context) => {
