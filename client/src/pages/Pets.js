@@ -5,7 +5,7 @@ import PetForm from "../components/PetForm";
 import WalkForm from "../components/WalkForm";
 import WalkList from "../components/walklist";
 
-const Pets = ({ pets, walks }) => {
+const Pets = ({ pets, walk }) => {
   return (
     <main>
       <div className="flex-row justify-center">
@@ -25,7 +25,7 @@ const Pets = ({ pets, walks }) => {
           <PetList pets={pets} petName="Pets registered" />
         </div>
         <div className="col-6 col-md-5 mb-3">
-          <WalkList walks={walks} walkDate="walks" />
+          <WalkList walk={walk} walkDate="walk" />
         </div>
       </div>
     </main>

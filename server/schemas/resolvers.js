@@ -32,9 +32,9 @@ const resolvers = {
       // }
       throw new AuthenticationError("You need to be logged in!");
     },
-    //   walk: async (parent, { BookWalk }) => {
-    //     return BookWalk.findOne({ _id: BookWalk }).populate("walk");
-    //   },
+      // walk: async (parent, { BookWalk }) => {
+      //   return BookWalk.findOne({ _id: BookWalk }).populate("walk");
+      // },
   },
 
   Mutation: {

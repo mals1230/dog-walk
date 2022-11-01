@@ -1,12 +1,11 @@
 import React from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import Pets from "./Pets"
 
 import { QUERY_USER } from "../utils/queries";
 
-import Auth from "../utils/auth";
 
 const Profile = () => {
   const { userFullName: userParam } = useParams();
@@ -14,16 +13,9 @@ const Profile = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { userFullName: userParam },
   });
-  // const { loadings, datas } = useQuery(QUERY_PETS);
-  // const pets = data?.pets || [];
-
-
+ 
   const user = data?.user || {};
-  // navigate to personal profile page if username is yours
-  // if (Auth.loggedIn() && Auth.getProfile().data.userFullName === userParam) {
-  //   return <Navigate to={`/profile/${userParam}`} />;
-  // }
-
+ 
   if (loading) {
     return <div>Loading...</div>;
   }
