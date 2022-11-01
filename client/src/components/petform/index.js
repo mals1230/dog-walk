@@ -69,7 +69,7 @@ const PetForm = () => {
 
   return (
     <div>
-      <h4>Register a new pet!</h4>
+      <h4>Register a New Pet!</h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -97,7 +97,7 @@ const PetForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="petBreed"
-                placeholder="My dog's breed is ... "
+                placeholder="Breed of Dog?"
                 value={petBreed}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -107,7 +107,7 @@ const PetForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="petAge"
-                placeholder="Age of dog"
+                placeholder="Age of Dog?"
                 value={petAge}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -117,7 +117,7 @@ const PetForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="petWeight"
-                placeholder="Weight of dog"
+                placeholder="Weight of Dog?"
                 value={petWeight}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -127,7 +127,7 @@ const PetForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="petInstructions"
-                placeholder="Address, Entry Instructions, Pet care instructions"
+                placeholder="Address, Entry Instructions, Pet Care Instructions"
                 value={petInstruction}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -137,7 +137,7 @@ const PetForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="petEmergency"
-                placeholder="Emergency info:"
+                placeholder="Emergency Info: vet, emergency contact"
                 value={petEmergency}
                 className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
