@@ -1,9 +1,9 @@
 import React from "react";
 
 import PetList from "../components/PetLists";
-import PetForm from "../components/PetForm";
-import WalkForm from "../components/WalkForm";
-import WalkList from "../components/walklist";
+import PetForm from "../components/PetForms";
+import WalkForm from "../components/WalkForms";
+import WalkList from "../components/walklists";
 
 const Pets = ({ pets, walk }) => {
   return (
